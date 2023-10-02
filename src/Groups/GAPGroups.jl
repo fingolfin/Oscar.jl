@@ -341,6 +341,26 @@ function Base.show(io::IO, G::PcGroup)
   end
 end
 
+function Base.show(io::IO, ::MIME"text/plain", x::GAPGroup)
+  # Recurse to regular printing
+  print(io, x)
+  has_gens(x) || return
+  println(io)
+  io = pretty(io)
+  n = ngens(x)
+  println(io, "with ", ItemQuantity(n, "generator"))
+  print(io, Indent())
+  # TODO: can we do something similar to what `show` for vectors does and
+  # restrict this to fill one screen by default?
+  for (i, g) in enumerate(gens(x))
+    show(io, MIME"text/plain"(), g)
+    if i < n
+      println(io)
+    end
+  end
+  print(io, Dedent())
+end
+
 
 Base.isone(x::GAPGroupElem) = GAPWrap.IsOne(x.X)
 
