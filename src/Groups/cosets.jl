@@ -58,12 +58,18 @@ Return the coset `Hg`.
 ```jldoctest
 julia> G = symmetric_group(5)
 Sym(5)
+with 2 generators
+  (1,2,3,4,5)
+  (1,2)
 
 julia> g = perm(G,[3,4,1,5,2])
 (1,3)(2,4,5)
 
 julia> H = symmetric_group(3)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 
 julia> right_coset(H, g)
 Right coset of Sym(3)
@@ -93,6 +99,9 @@ julia> g = perm([3,4,1,5,2])
 
 julia> H = symmetric_group(3)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 
 julia> gH = left_coset(H, g)
 Left coset of Sym(3)
@@ -156,12 +165,18 @@ If `C` = `Hx` or `xH`, return `H`.
 ```jldoctest
 julia> G = symmetric_group(5)
 Sym(5)
+with 2 generators
+  (1,2,3,4,5)
+  (1,2)
 
 julia> g = perm(G,[3,4,1,5,2])
 (1,3)(2,4,5)
 
 julia> H = symmetric_group(3)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 
 julia> gH = left_coset(H,g)
 Left coset of Sym(3)
@@ -170,6 +185,9 @@ Left coset of Sym(3)
 
 julia> acting_domain(gH)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 ```
 """
 acting_domain(C::GroupCoset) = C.H
@@ -183,12 +201,18 @@ If `C` = `Hx` or `xH`, return `x`.
 ```jldoctest
 julia> G = symmetric_group(5)
 Sym(5)
+with 2 generators
+  (1,2,3,4,5)
+  (1,2)
 
 julia> g = perm(G,[3,4,1,5,2])
 (1,3)(2,4,5)
 
 julia> H = symmetric_group(3)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 
 julia> gH = left_coset(H, g)
 Left coset of Sym(3)
@@ -212,9 +236,15 @@ is the case if and only if the coset representative normalizes the acting domain
 ```jldoctest
 julia> G = symmetric_group(5)
 Sym(5)
+with 2 generators
+  (1,2,3,4,5)
+  (1,2)
 
 julia> H = symmetric_group(4)
 Sym(4)
+with 2 generators
+  (1,2,3,4)
+  (1,2)
 
 julia> g = perm(G,[3,4,1,5,2])
 (1,3)(2,4,5)
@@ -252,9 +282,15 @@ If `check == false`, do not check whether `H` is a subgroup of `G`.
 ```jldoctest
 julia> G = symmetric_group(4)
 Sym(4)
+with 2 generators
+  (1,2,3,4)
+  (1,2)
 
 julia> H = symmetric_group(3)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 
 julia> rc = right_cosets(G, H)
 Right cosets of
@@ -284,9 +320,15 @@ If `check == false`, do not check whether `H` is a subgroup of `G`.
 ```jldoctest
 julia> G = symmetric_group(4)
 Sym(4)
+with 2 generators
+  (1,2,3,4)
+  (1,2)
 
 julia> H = symmetric_group(3)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 
 julia> left_cosets(G, H)
 4-element Vector{GroupCoset{PermGroup, PermGroupElem}}:
@@ -370,9 +412,15 @@ If `check == false`, do not check whether `H` is a subgroup of `G`.
 ```jldoctest
 julia> G = symmetric_group(4)
 Sym(4)
+with 2 generators
+  (1,2,3,4)
+  (1,2)
 
 julia> H = symmetric_group(3)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 
 julia> T = right_transversal(G, H)
 Right transversal of length 4 of
@@ -407,9 +455,15 @@ If `check == false`, do not check whether `H` is a subgroup of `G`.
 ```jldoctest
 julia> G = symmetric_group(4)
 Sym(4)
+with 2 generators
+  (1,2,3,4)
+  (1,2)
 
 julia> H = symmetric_group(3)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 
 julia> T = left_transversal(G, H)
 Left transversal of length 4 of
@@ -485,15 +539,23 @@ Return the double coset `HxK`.
 ```jldoctest
 julia> G = symmetric_group(5)
 Sym(5)
+with 2 generators
+  (1,2,3,4,5)
+  (1,2)
 
 julia> g = perm(G,[3,4,5,1,2])
 (1,3,5,2,4)
 
 julia> H = symmetric_group(3)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 
 julia> K = symmetric_group(2)
 Sym(2)
+with 1 generator
+  (1,2)
 
 julia> double_coset(H,g,K)
 Sym( [ 1 .. 3 ] ) * (1,3,5,2,4) * Sym( [ 1 .. 2 ] )
@@ -517,12 +579,20 @@ If `check == false`, do not check whether `H` and `K` are subgroups of `G`.
 ```jldoctest
 julia> G = symmetric_group(4)
 Sym(4)
+with 2 generators
+  (1,2,3,4)
+  (1,2)
 
 julia> H = symmetric_group(3)
 Sym(3)
+with 2 generators
+  (1,2,3)
+  (1,2)
 
 julia> K = symmetric_group(2)
 Sym(2)
+with 1 generator
+  (1,2)
 
 julia> double_cosets(G,H,K)
 3-element Vector{GroupDoubleCoset{PermGroup, PermGroupElem}}:
